@@ -29,4 +29,3 @@ async function seed() {
     await createPlaylistTrack(playlistId, i);
   }
 }
-console.log("hello");
