@@ -2,7 +2,9 @@ import jwt from "jsonwebtoken";
 
 const SECRET = process.env.JWT_SECRET;
 
-/** Creates a token with the given payload */
+/** Creates a token with the given payload
+ * @param {object} payload
+ */
 export function createToken(payload) {
   return jwt.sign(payload, SECRET, { expiresIn: "7d" });
 }
