@@ -11,21 +11,16 @@ await db.end();
 console.log("🌱 Database seeded.");
 
 async function seed() {
-  // create atleast 2 users with 5 playlists
-  const user1 = await createUser("BigTerry", "hunter123");
-  const user2 = await createUser("SmallRonnie", "321retnuh");
-
   for (let i = 1; i <= 20; i++) {
-    const userId = 1 + (i % 2);
-    await createPlaylist(
-      "Playlist " + i,
-      "lorem ipsum playlist description",
-      userId,
-    );
     await createTrack("Track " + i, i * 50000);
   }
-  for (let i = 1; i <= 15; i++) {
-    const playlistId = 1 + Math.floor(i / 2);
-    await createPlaylistTrack(playlistId, i);
+
+  // Create 3 users each with a playlist of 5 tracks
+  for (let i = 1; i <= 3; i++) {
+    const user = await createUser("user" + i, "password");
+    await createPlaylist("playlist" + i, "description" + i, user.id);
+    for (let j = 0; j < 5; j++) {
+      await createPlaylistTrack(user.id, (i - 1) * 5 + j + 1);
+    }
   }
 }

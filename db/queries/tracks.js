@@ -1,11 +1,5 @@
 import db from "#db/client";
 
-/**
- *
- * @param {Text} name
- * @param {Number} durationMs
- * @returns
- */
 export async function createTrack(name, durationMs) {
   const sql = `
   INSERT INTO tracks
