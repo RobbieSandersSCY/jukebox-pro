@@ -9,6 +9,10 @@ import {
 } from "#db/queries/playlists";
 import { createPlaylistTrack } from "#db/queries/playlists_tracks";
 import { getTracksByPlaylistId } from "#db/queries/tracks";
+import requireUser from "#middleware/requireUser";
+
+// all /playlists require login
+router.use(requireUser);
 
 router.get("/", async (req, res) => {
   const playlists = await getPlaylists();

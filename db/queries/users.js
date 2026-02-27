@@ -22,10 +22,13 @@ export async function createUser(username, password) {
   return user;
 }
 
-export async function getUserByUsernameAndPassword(
-  username,
-  password,
-) {
+/**
+ *
+ * @param {text} username
+ * @param {text} password
+ * @returns user
+ */
+export async function getUserByUsernameAndPassword(username, password) {
   // query for username
   const sql = `
   SELECT *
