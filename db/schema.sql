@@ -19,7 +19,7 @@ CREATE TABLE playlists (
   id serial PRIMARY KEY,
   name text NOT NULL,
   description text NOT NULL,
-  owner_id int NOT NULL REFERENCES users(id) ON DELETE CASCADE
+  user_id int NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE playlists_tracks (
